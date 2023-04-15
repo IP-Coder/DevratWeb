@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.error-page {
+    padding: 110px;
+    text-align: center;
+}
+
+.error-page h1 {
+    font-size: 12em;
+    color: #2e2e2e;
+    margin: 0;
+}
+
+.error-page p, .card-body p {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #005fad;
+    color: #fff;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    .error-page {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 12em;
+        color: #2e2e2e;
+        margin: 0;
+    }
+
+    p {
+        font-size: 1.5em;
+        color: #555;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #0077cc;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+        background-color: #005fad;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div class="error-page">
+        <h1>404</h1>
+        <p>Oops! The page you're looking for could not be found.</p>
+        <a href="/" class="btn">Go Home</a>
+    </div>
+
+    <script>
+        // This script is optional, it just adds a fun animation to the heading
+        const heading = document.querySelector('h1');
+        const letters = heading.textContent.split('');
+
+        heading.textContent = '';
+
+        letters.forEach(letter => {
+            const span = document.createElement('span');
+            span.textContent = letter;
+            span.style.opacity = '0';
+            heading.appendChild(span);
+
+            setTimeout(() => {
+                span.style.opacity = '1';
+            }, Math.floor(Math.random() * 2000) + 1);
+        });
+
+    </script>
+</body>
+
+</html>
