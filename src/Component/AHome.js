@@ -82,8 +82,8 @@ const AHome = () => {
 
   return (
     <>
-      <div className="row">
-        <div className="col-3">
+      <div className="row" id="homerow">
+        <div className="col-3" id="homecol1">
           <nav className="navbar navbar-expand-lg bg-body-tertiary ">
             <div className="container-fluid">
               <button
@@ -107,167 +107,173 @@ const AHome = () => {
                       VM 11 PRIME
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "dashboard" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("dashboard")}
-                    >
-                      Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "allDownline" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("allDownline")}
-                    >
-                      All Downline
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "myDownline" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("myDownline")}
-                    >
-                      My Downline
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "genealogy" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("genealogy")}
-                    >
-                      Genealogy
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "myIdCard" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("myIdCard")}
-                    >
-                      My ID Card
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "myProfile" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("myProfile")}
-                    >
-                      My Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "myOrders" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("myOrders")}
-                    >
-                      My Orders
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "myEarning" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("myEarning")}
-                    >
-                      My Earning
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "myPoints" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("myPoints")}
-                    >
-                      My Points
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "shopProducts" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("shopProducts")}
-                    >
-                      Shop Products
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "funds" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("funds")}
-                    >
-                      Funds
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "myFundRequests" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("myFundRequests")}
-                    >
-                      My Fund Requests
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "support" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("support")}
-                    >
-                      Support
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className={`nav-link link-body-emphasis ${
-                        selectedPanel === "logout" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("logout")}
-                    >
-                      logout
-                    </a>
-                  </li>
+                  <div className="" id="nav1">
+                    <div className="" id="navin1">
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "dashboard" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("dashboard")}
+                        >
+                          Dashboard
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "allDownline" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("allDownline")}
+                        >
+                          All Downline
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "myDownline" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("myDownline")}
+                        >
+                          My Downline
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "genealogy" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("genealogy")}
+                        >
+                          Genealogy
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "myIdCard" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("myIdCard")}
+                        >
+                          My ID Card
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "myProfile" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("myProfile")}
+                        >
+                          My Profile
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "myOrders" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("myOrders")}
+                        >
+                          My Orders
+                        </a>
+                      </li>
+                    </div>
+                    <div className="" id="navin2">
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "myEarning" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("myEarning")}
+                        >
+                          My Earning
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "myPoints" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("myPoints")}
+                        >
+                          My Points
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "shopProducts" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("shopProducts")}
+                        >
+                          Shop Products
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "funds" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("funds")}
+                        >
+                          Funds
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "myFundRequests" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("myFundRequests")}
+                        >
+                          My Fund Requests
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "support" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("support")}
+                        >
+                          Support
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#"
+                          className={`nav-link link-body-emphasis ${
+                            selectedPanel === "logout" ? "active" : ""
+                          }`}
+                          onClick={() => handlePanelClick("logout")}
+                        >
+                          logout
+                        </a>
+                      </li>
+                    </div>
+                  </div>
                 </ul>
                 <hr />
               </div>
             </div>
           </nav>
         </div>
-        <div className="col">
+        <div className="col" id="homecol2">
           <div className="container mt-5 p-5">{panelContent}</div>
         </div>
       </div>
