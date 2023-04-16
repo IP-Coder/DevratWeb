@@ -83,11 +83,24 @@ const AHome = () => {
     <>
       <div className="row">
         <div className="col-3">
-          {/* <div
-            className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary"
-            style={{ width: "280px" }}
-          >
-            <a
+          <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <div className="container-fluid">
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div
+                className="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
+                {/* <a
               href="/"
               className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
             >
@@ -97,221 +110,223 @@ const AHome = () => {
               <span className="fs-4">VM 11 PRIME</span>
             </a>
             <hr /> */}
-          <ul className="nav flex-column">
-            <li className="nav-item">
-              <a
-                href="#"
-                className={`nav-link ${
-                  selectedPanel === "home" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("home")}
-                aria-current="page"
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#home" />
-                </svg>
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "dashboard" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("dashboard")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#speedometer2" />
-                </svg>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "allDownline" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("allDownline")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#people-circle" />
-                </svg>
-                All Downline
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "myDownline" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("myDownline")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#people-circle-fill" />
-                </svg>
-                My Downline
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "genealogy" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("genealogy")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                Genealogy
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "myIdCard" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("myIdCard")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                My ID Card
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "myProfile" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("myProfile")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                My Profile
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "myOrders" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("myOrders")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                My Orders
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "myEarning" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("myEarning")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                My Earning
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "myPoints" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("myPoints")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                My Points
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "shopProducts" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("shopProducts")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                Shop Products
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "funds" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("funds")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                Funds
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "myFundRequests" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("myFundRequests")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                My Fund Requests
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "support" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("support")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                Support
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className={`nav-link link-body-emphasis ${
-                  selectedPanel === "logout" ? "active" : ""
-                }`}
-                onClick={() => handlePanelClick("logout")}
-              >
-                <svg className="bi pe-none me-2" width="16" height="16">
-                  <use xlinkHref="#tree" />
-                </svg>
-                logout
-              </a>
-            </li>
-          </ul>
-          <hr />
-          {/* </div> */}
+                <ul className="nav flex-column">
+                  <li className="nav-item">
+                    <a
+                      href="#"
+                      className={`nav-link ${
+                        selectedPanel === "home" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("home")}
+                      aria-current="page"
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#home" />
+                      </svg>
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "dashboard" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("dashboard")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#speedometer2" />
+                      </svg>
+                      Dashboard
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "allDownline" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("allDownline")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#people-circle" />
+                      </svg>
+                      All Downline
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "myDownline" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("myDownline")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#people-circle-fill" />
+                      </svg>
+                      My Downline
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "genealogy" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("genealogy")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      Genealogy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "myIdCard" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("myIdCard")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      My ID Card
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "myProfile" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("myProfile")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      My Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "myOrders" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("myOrders")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      My Orders
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "myEarning" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("myEarning")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      My Earning
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "myPoints" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("myPoints")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      My Points
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "shopProducts" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("shopProducts")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      Shop Products
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "funds" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("funds")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      Funds
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "myFundRequests" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("myFundRequests")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      My Fund Requests
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "support" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("support")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      Support
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className={`nav-link link-body-emphasis ${
+                        selectedPanel === "logout" ? "active" : ""
+                      }`}
+                      onClick={() => handlePanelClick("logout")}
+                    >
+                      <svg className="bi pe-none me-2" width="16" height="16">
+                        <use xlinkHref="#tree" />
+                      </svg>
+                      logout
+                    </a>
+                  </li>
+                </ul>
+                <hr />
+              </div>
+            </div>
+          </nav>
         </div>
         <div className="col-9">
           <div className="container mt-5 p-5">{panelContent}</div>
