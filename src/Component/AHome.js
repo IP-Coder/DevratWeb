@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import DashboardPanel from "./Accounts/DashboardPanel";
-import HomePanel from "./Accounts/HomePanel";
 import AllDownlinePanel from "./Accounts/AllDownlinePanel";
 import MyDownlinePanel from "./Accounts/MyDownlinePanel";
 import GenealogyPanel from "./Accounts/GenealogyPanel";
@@ -20,9 +19,11 @@ import { useNavigate } from "react-router-dom";
 
 const AHome = () => {
   const navigate = useNavigate();
-  if (localStorage.getItem("isLoggedin") === false) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (!localStorage.getItem("email")) {
+      navigate("/login");
+    }
+  }, []);
   const [selectedPanel, setSelectedPanel] = useState("home");
 
   const handlePanelClick = (panel) => {
@@ -75,7 +76,7 @@ const AHome = () => {
       panelContent = <LogoutPanel />;
       break;
     default:
-      panelContent = <HomePanel />;
+      panelContent = <DashboardPanel />;
       break;
   }
 
@@ -83,7 +84,7 @@ const AHome = () => {
     <>
       <div className="row">
         <div className="col-3">
-          <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <nav className="navbar navbar-expand-lg bg-body-tertiary ">
             <div className="container-fluid">
               <button
                 className="navbar-toggler"
@@ -100,30 +101,10 @@ const AHome = () => {
                 className="collapse navbar-collapse"
                 id="navbarSupportedContent"
               >
-                {/* <a
-              href="/"
-              className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-            >
-              <svg className="bi pe-none me-2" width="40" height="32">
-                <use xlinkHref="#bootstrap" />
-              </svg>
-              <span className="fs-4">VM 11 PRIME</span>
-            </a>
-            <hr /> */}
                 <ul className="nav flex-column">
-                  <li className="nav-item">
-                    <a
-                      href="#"
-                      className={`nav-link ${
-                        selectedPanel === "home" ? "active" : ""
-                      }`}
-                      onClick={() => handlePanelClick("home")}
-                      aria-current="page"
-                    >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#home" />
-                      </svg>
-                      Home
+                  <li>
+                    <a href="#" className="nav-link fs-3 link-body-emphasis">
+                      VM 11 PRIME
                     </a>
                   </li>
                   <li>
@@ -134,9 +115,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("dashboard")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#speedometer2" />
-                      </svg>
                       Dashboard
                     </a>
                   </li>
@@ -148,9 +126,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("allDownline")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#people-circle" />
-                      </svg>
                       All Downline
                     </a>
                   </li>
@@ -162,9 +137,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("myDownline")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#people-circle-fill" />
-                      </svg>
                       My Downline
                     </a>
                   </li>
@@ -176,9 +148,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("genealogy")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       Genealogy
                     </a>
                   </li>
@@ -190,9 +159,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("myIdCard")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       My ID Card
                     </a>
                   </li>
@@ -204,9 +170,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("myProfile")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       My Profile
                     </a>
                   </li>
@@ -218,9 +181,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("myOrders")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       My Orders
                     </a>
                   </li>
@@ -232,9 +192,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("myEarning")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       My Earning
                     </a>
                   </li>
@@ -246,9 +203,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("myPoints")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       My Points
                     </a>
                   </li>
@@ -260,9 +214,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("shopProducts")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       Shop Products
                     </a>
                   </li>
@@ -274,9 +225,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("funds")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       Funds
                     </a>
                   </li>
@@ -288,9 +236,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("myFundRequests")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       My Fund Requests
                     </a>
                   </li>
@@ -302,9 +247,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("support")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       Support
                     </a>
                   </li>
@@ -316,9 +258,6 @@ const AHome = () => {
                       }`}
                       onClick={() => handlePanelClick("logout")}
                     >
-                      <svg className="bi pe-none me-2" width="16" height="16">
-                        <use xlinkHref="#tree" />
-                      </svg>
                       logout
                     </a>
                   </li>
@@ -328,7 +267,7 @@ const AHome = () => {
             </div>
           </nav>
         </div>
-        <div className="col-9">
+        <div className="col">
           <div className="container mt-5 p-5">{panelContent}</div>
         </div>
       </div>

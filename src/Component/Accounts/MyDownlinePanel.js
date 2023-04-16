@@ -2,10 +2,34 @@ import React from "react";
 
 const MyDownlinePanel = () => {
   return (
-    <div>
-      <h2>My Downline</h2>
-      <p>This is the My Downline panel content</p>
-    </div>
+    <>
+      <table className="table bg-white" style={{ fontSize: "15px" }}>
+        <thead>
+          <tr className="fs-">
+            <th scope="col">S.No</th>
+            <th scope="col">Distributor Name</th>
+            <th scope="col">Distributor Contact</th>
+            <th scope="col">DOJ</th>
+            <th scope="col">Rank</th>
+            <th scope="col">Reference Code</th>
+            <th scope="col">Total</th>
+            <th scope="col">Total(With Tax)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+    </>
   );
 };
 
