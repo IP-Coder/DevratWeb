@@ -1,7 +1,17 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import fb from "../Database/firebaseconfig";
+import { doc, getDoc } from "firebase/firestore";
+const db = fb.db;
 const MyProfilePanel = () => {
-  const db = "Helllo World";
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "login", localStorage.getItem("email"));
+      const docSnap = await getDoc(docRef);
+      setData(docSnap.data());
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className=" ">
@@ -15,7 +25,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder={db}
+                placeholder={data.DistributorName}
                 name="DistributorName"
               />
             </div>
@@ -27,7 +37,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.ReferralCode}
                 name="ReferenceCode"
               />
             </div>
@@ -39,7 +49,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.Email}
                 name="Email"
               />
             </div>
@@ -51,7 +61,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.FatherName}
                 name="FatherName"
               />
             </div>
@@ -60,10 +70,10 @@ const MyProfilePanel = () => {
                 Date Of Birth(DOB)*
               </label>
               <input
-                type="date"
+                type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.DOB}
                 name="DOB"
               />
             </div>
@@ -75,8 +85,8 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
-                name="sex"
+                placeholder={data.sex}
+                name="Sex"
               />
             </div>
             <div className="col-md-6">
@@ -87,7 +97,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.AadharNo}
                 name="AadharNo"
               />
             </div>
@@ -99,7 +109,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.Nationality}
                 name="Nationality"
               />
             </div>
@@ -111,7 +121,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.HouseNo}
                 name="HouseNo"
               />
             </div>
@@ -123,7 +133,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.Village}
                 name="Village"
               />
             </div>
@@ -135,7 +145,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.District}
                 name="District"
               />
             </div>
@@ -147,7 +157,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.MobileNumber}
                 name="MobileNumber"
               />
             </div>
@@ -159,7 +169,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.NomineeName}
                 name="NomineeName"
               />
             </div>
@@ -171,7 +181,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.NomineeRelation}
                 name="NomineeRelation"
               />
             </div>
@@ -180,10 +190,10 @@ const MyProfilePanel = () => {
                 Nominee DOB*
               </label>
               <input
-                type="date"
+                type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.NomineeDOB}
                 name="NomineeDOB"
               />
             </div>
@@ -195,7 +205,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.BankName}
                 name="BankName"
               />
             </div>
@@ -207,7 +217,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.BankAccountNumber}
                 name="BankAccountNumber"
               />
             </div>
@@ -219,7 +229,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.BankBranchAddress}
                 name="BankBranchAddress"
               />
             </div>
@@ -231,7 +241,7 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.BankIFSCCode}
                 name="BankIFSCCode"
               />
             </div>
@@ -243,80 +253,8 @@ const MyProfilePanel = () => {
                 type="text"
                 className="form-control"
                 id="disabledTextInput"
-                placeholder="Disabled input"
+                placeholder={data.PanNo}
                 name="PANNo"
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="formFile" className="form-label">
-                PAN Image*
-              </label>
-              <input
-                className="form-control"
-                id="disabledTextInput"
-                placeholder="Disabled input"
-                type="file"
-                name="PanImage"
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="formFile" className="form-label">
-                Aadhar Front Image*
-              </label>
-              <input
-                className="form-control"
-                id="disabledTextInput"
-                placeholder="Disabled input"
-                type="file"
-                name="Aaadharfront"
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="formFile" className="form-label">
-                Aadhar Back Image*
-              </label>
-              <input
-                className="form-control"
-                id="disabledTextInput"
-                placeholder="Disabled input"
-                type="file"
-                name="Aaadharback"
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="formFile" className="form-label">
-                Profile Image*
-              </label>
-              <input
-                className="form-control"
-                id="disabledTextInput"
-                placeholder="Disabled input"
-                type="file"
-                name="ProfileImage"
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="inputPassword4" className="form-label">
-                Password*
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="disabledTextInput"
-                placeholder="Disabled input"
-                name="Password"
-              />
-            </div>
-            <div className="col-md-6">
-              <label htmlFor="inputPassword4" className="form-label">
-                Confirm Password*
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="disabledTextInput"
-                placeholder="Disabled input"
-                name="ConfirmPassword"
               />
             </div>
           </fieldset>

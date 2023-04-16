@@ -21,7 +21,7 @@ const MyIdCardPanel = () => {
           <div className="card-body bg-info">
             <div>
               <img
-                src="/images/Devrt.jpg"
+                src="gs://red-agility-367213.appspot.com/24.png"
                 height={"50%"}
                 class="w-50 rounded"
                 alt="..."
