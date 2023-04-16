@@ -15,18 +15,17 @@ const MyIdCardPanel = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center ">
-        <div className="card w-50 text-center">
-          <div className="card-header fs-1 ">VM 11 PRIME</div>
-          <div className="card-body bg-info">
-            <div>
-              <img
-                src="gs://red-agility-367213.appspot.com/24.png"
-                height={"50%"}
-                class="w-50 rounded"
-                alt="..."
-              />
-            </div>
+      <div className="card text-center">
+        <div className="card-header fs-1 ">VM 11 PRIME</div>
+        <div className="card-body p-5">
+          <div className="d-flex flex-column align-items-center">
+            <img
+              src="/images/Devrt.jpg"
+              height={"30%"}
+              class="w-25 rounded"
+              alt="..."
+            />
+
             <h4 className="mt-4 mb-4">{data.DistributorName}</h4>
             <table className="table-primary text-start fs-6">
               <tbody className="">
@@ -59,9 +58,9 @@ const MyIdCardPanel = () => {
               </tbody>
             </table>
           </div>
-          <div className="card-footer fs-5 p- text-danger ">
-            If found please return it to company <br />V 11 PRIME MKT. PVT. LTD.
-          </div>
+        </div>
+        <div className="card-footer fs-5 p- text-danger ">
+          If found please return it to company <br />V 11 PRIME MKT. PVT. LTD.
         </div>
       </div>
     </>
