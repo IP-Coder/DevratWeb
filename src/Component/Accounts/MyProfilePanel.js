@@ -257,6 +257,30 @@ const MyProfilePanel = () => {
                 name="PANNo"
               />
             </div>
+            <div className="col-md-3">
+              <label htmlFor="inputPassword4" className="form-label">
+                Aaadharfront
+              </label>
+              <img className="w-75" src={data.ProfileImage}></img>
+            </div>
+            <div className="col-md-3">
+              <label htmlFor="inputPassword4" className="form-label">
+                Aadharback
+              </label>
+              <img className="w-75" src={data.ProfileImage}></img>
+            </div>
+            <div className="col-md-3">
+              <label htmlFor="inputPassword4" className="form-label">
+                Pan Card
+              </label>
+              <img className="w-75" src={data.ProfileImage}></img>
+            </div>
+            <div className="col-md-3">
+              <label htmlFor="inputPassword4" className="form-label">
+                Profile Image
+              </label>
+              <img className="w-75" src={data.ProfileImage}></img>
+            </div>
           </fieldset>
         </form>
       </div>

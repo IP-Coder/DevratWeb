@@ -109,7 +109,7 @@ const AHome = () => {
                   </li>
                   <div className="" id="nav1">
                     <div className="" id="navin1">
-                      <li>
+                      <li className="border">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
