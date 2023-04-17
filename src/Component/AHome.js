@@ -102,14 +102,14 @@ const AHome = () => {
                 id="navbarSupportedContent"
               >
                 <ul className="nav flex-column">
-                  <li className="border border-5 bg-info border-start-0 ">
+                  <li className="border border-4 bg-info text-center ">
                     <a href="#" className="nav-link fs-5  link-body-emphasis">
                       VM 11 PRIME
                     </a>
                   </li>
                   <div className="" id="nav1">
                     <div className="" id="navin1">
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -120,7 +120,7 @@ const AHome = () => {
                           Dashboard
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -131,7 +131,7 @@ const AHome = () => {
                           All Downline
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -142,7 +142,7 @@ const AHome = () => {
                           My Downline
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -153,7 +153,7 @@ const AHome = () => {
                           Genealogy
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -164,7 +164,7 @@ const AHome = () => {
                           My ID Card
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -175,7 +175,7 @@ const AHome = () => {
                           My Profile
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -188,7 +188,7 @@ const AHome = () => {
                       </li>
                     </div>
                     <div className="" id="navin2">
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -199,7 +199,7 @@ const AHome = () => {
                           My Earning
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -210,7 +210,7 @@ const AHome = () => {
                           My Points
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -221,7 +221,7 @@ const AHome = () => {
                           Shop Products
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -232,7 +232,7 @@ const AHome = () => {
                           Funds
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -243,7 +243,7 @@ const AHome = () => {
                           My Fund Requests
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
@@ -254,7 +254,7 @@ const AHome = () => {
                           Support
                         </a>
                       </li>
-                      <li className="border border-5 border-start-0 ">
+                      <li className="border border-4">
                         <a
                           href="#"
                           className={`nav-link link-body-emphasis ${
