@@ -161,9 +161,7 @@ const Signup = () => {
         sex: loginData.sex,
         isActive: true,
       };
-      console.log(data);
       const response = await setDoc(doc(db, "login", loginData.Email), data);
-      console.log("Document written with ID: ", response);
       history("/login");
     } catch (err) {
       console.error(err);

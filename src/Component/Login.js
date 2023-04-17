@@ -48,7 +48,6 @@ const Login = () => {
       console.log(loginData);
       const docRef = doc(db, "login", loginData.email);
       const docSnap = await getDoc(docRef);
-      console.log(docSnap.data().Password);
       if (!docSnap.data().isActive) {
         alert("Your Id is blocked contact to the Administration");
       } else {

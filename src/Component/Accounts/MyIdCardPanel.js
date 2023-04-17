@@ -22,7 +22,7 @@ const MyIdCardPanel = () => {
             <img
               src={data.ProfileImage}
               height={"30%"}
-              class="w-25 rounded"
+              className="w-25 rounded"
               alt="..."
             />
 
