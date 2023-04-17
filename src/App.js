@@ -7,6 +7,7 @@ import Four04 from "./Component/Four04";
 import Contactus from "./Component/Contactus";
 import AHome from "./Component/AHome";
 import Signup from "./Component/Signup";
+import FirebaseImageUploader from "./Component/FirebaseImageUploader";
 // import ImageDisplay from "./Component/ImageDisplay";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route exact path="/contactus" element={<Contactus />} />
         <Route exact path="/Ahome" element={<AHome />} />
         <Route exact path="/signup" element={<Signup />} />
-        {/* <Route exact path="/tst" element={<ImageDisplay />} /> */}
+        <Route exact path="/tst" element={<FirebaseImageUploader />} />
       </Routes>
     </Router>
   );

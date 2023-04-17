@@ -8,12 +8,83 @@ import Breadcrumb from "./Breadcrumb";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import bcrypt from "bcryptjs";
+import "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const db = fb.db;
 const Signup = () => {
   let history = useNavigate();
   const [loginData, setloginData] = useState({
     showPassword: false,
   });
+
+  const [file1, setFile1] = useState(null);
+  const [file2, setFile2] = useState(null);
+  const [file3, setFile3] = useState(null);
+  const [file4, setFile4] = useState(null);
+  let downloadURL1;
+  let downloadURL2;
+  let downloadURL3;
+  let downloadURL4;
+  const handleFile1InputChange = (event) => {
+    const file = event.target.files[0];
+    if (file.size > 50 * 1024) {
+      alert("File size is greater than 50kb");
+      event.target.value = null; // reset file input
+      return;
+    }
+    if (!file.type.match("image.*")) {
+      alert("Only image files are allowed");
+      event.target.value = null; // reset file input
+      return;
+    }
+    setFile1(file);
+  };
+
+  const handleFile2InputChange = (event) => {
+    const file = event.target.files[0];
+    if (file.size > 50 * 1024) {
+      alert("File size is greater than 50kb");
+      event.target.value = null; // reset file input
+      return;
+    }
+    if (!file.type.match("image.*")) {
+      alert("Only image files are allowed");
+      event.target.value = null; // reset file input
+      return;
+    }
+    setFile2(file);
+  };
+
+  const handleFile3InputChange = (event) => {
+    const file = event.target.files[0];
+    if (file.size > 50 * 1024) {
+      alert("File size is greater than 50kb");
+      event.target.value = null; // reset file input
+      return;
+    }
+    if (!file.type.match("image.*")) {
+      alert("Only image files are allowed");
+      event.target.value = null; // reset file input
+      return;
+    }
+    setFile3(file);
+  };
+
+  const handleFile4InputChange = (event) => {
+    const file = event.target.files[0];
+    if (file.size > 50 * 1024) {
+      alert("File size is greater than 50kb");
+      event.target.value = null; // reset file input
+      return;
+    }
+    if (!file.type.match("image.*")) {
+      alert("Only image files are allowed");
+      event.target.value = null; // reset file input
+      return;
+    }
+    setFile4(file);
+  };
+
   // var validEmailRegex =
   //   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   // var validtextRegex = /^.{8,25}$/;
@@ -23,12 +94,46 @@ const Signup = () => {
     const salt = await bcrypt.genSalt(10);
     const SecurePassword = await bcrypt.hash(loginData.Password, salt);
     try {
-      console.log("hello");
-      console.log(loginData);
-      const uid = loginData.MobileNumber;
+      const storage = getStorage();
+
+      if (file1) {
+        const storageRef1 = ref(
+          storage,
+          `Credentials/${loginData.MobileNumber}/AadharFront.png`
+        );
+        await uploadBytes(storageRef1, file1);
+        downloadURL1 = await getDownloadURL(storageRef1);
+      }
+
+      if (file2) {
+        const storageRef2 = ref(
+          storage,
+          `Credentials/${loginData.MobileNumber}/Aadharback.png`
+        );
+        await uploadBytes(storageRef2, file2);
+        downloadURL2 = await getDownloadURL(storageRef2);
+      }
+
+      if (file3) {
+        const storageRef3 = ref(
+          storage,
+          `Credentials/${loginData.MobileNumber}/Profile.png`
+        );
+        await uploadBytes(storageRef3, file3);
+        downloadURL3 = await getDownloadURL(storageRef3);
+      }
+
+      if (file4) {
+        const storageRef4 = ref(
+          storage,
+          `Credentials/${loginData.MobileNumber}/PanCard.png`
+        );
+        await uploadBytes(storageRef4, file4);
+        downloadURL4 = await getDownloadURL(storageRef4);
+      }
       const data = {
-        Aaadharback: loginData.Aaadharback,
-        Aaadharfront: loginData.Aaadharfront,
+        Aaadharback: downloadURL1,
+        Aaadharfront: downloadURL2,
         AadharNo: loginData.AadharNo,
         BankAccountNumber: loginData.BankAccountNumber,
         BankBranchAddress: loginData.BankBranchAddress,
@@ -47,8 +152,8 @@ const Signup = () => {
         NomineeRelation: loginData.NomineeRelation,
         PanNo: loginData.PANNo,
         Password: SecurePassword,
-        PanImage: loginData.PanImage,
-        ProfileImage: loginData.ProfileImage,
+        PanImage: downloadURL4,
+        ProfileImage: downloadURL3,
         ParentRefferal: loginData.ReferenceCode,
         ReferralCode:
           loginData.DistributorName + loginData.MobileNumber.slice(0, 4),
@@ -56,10 +161,10 @@ const Signup = () => {
         sex: loginData.sex,
         isActive: true,
       };
+      console.log(data);
       const response = await setDoc(doc(db, "login", loginData.Email), data);
       console.log("Document written with ID: ", response);
       history("/login");
-      // props.showAlert("Attendance submitted successfully ", "success");
     } catch (err) {
       console.error(err);
     }
@@ -313,7 +418,7 @@ const Signup = () => {
               <input
                 className="form-control p-3"
                 type="file"
-                onChange={onChange}
+                onChange={handleFile4InputChange}
                 name="PanImage"
               />
             </div>
@@ -324,7 +429,7 @@ const Signup = () => {
               <input
                 className="form-control p-3"
                 type="file"
-                onChange={onChange}
+                onChange={handleFile1InputChange}
                 name="Aaadharfront"
               />
             </div>
@@ -335,7 +440,7 @@ const Signup = () => {
               <input
                 className="form-control p-3"
                 type="file"
-                onChange={onChange}
+                onChange={handleFile2InputChange}
                 name="Aaadharback"
               />
             </div>
@@ -346,7 +451,7 @@ const Signup = () => {
               <input
                 className="form-control p-3"
                 type="file"
-                onChange={onChange}
+                onChange={handleFile3InputChange}
                 name="ProfileImage"
               />
             </div>

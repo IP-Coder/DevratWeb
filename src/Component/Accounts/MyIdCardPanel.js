@@ -20,7 +20,7 @@ const MyIdCardPanel = () => {
         <div className="card-body p-5">
           <div className="d-flex flex-column align-items-center">
             <img
-              src="/images/Devrt.jpg"
+              src={data.ProfileImage}
               height={"30%"}
               class="w-25 rounded"
               alt="..."
