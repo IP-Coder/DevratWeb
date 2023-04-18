@@ -92,8 +92,8 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const salt = await bcrypt.genSalt(10);
-    const SecurePassword = await bcrypt.hash(loginData.Password, salt);
     try {
+      const SecurePassword = await bcrypt.hash(loginData.Password, salt);
       const storage = getStorage();
 
       if (file1) {
@@ -132,39 +132,51 @@ const Signup = () => {
         downloadURL4 = await getDownloadURL(storageRef4);
       }
       const data = {
-        Aaadharback: downloadURL1,
-        Aaadharfront: downloadURL2,
-        AadharNo: loginData.AadharNo,
-        BankAccountNumber: loginData.BankAccountNumber,
-        BankBranchAddress: loginData.BankBranchAddress,
-        BankIFSCCode: loginData.BankIFSCCode,
-        BankName: loginData.BankName,
-        DOB: loginData.DOB,
-        DistributorName: loginData.DistributorName,
-        District: loginData.District,
-        Email: loginData.Email,
-        FatherName: loginData.FatherName,
-        HouseNo: loginData.HouseNo,
-        MobileNumber: loginData.MobileNumber,
-        Nationality: loginData.Nationality,
-        NomineeDOB: loginData.NomineeDOB,
-        NomineeName: loginData.NomineeName,
-        NomineeRelation: loginData.NomineeRelation,
-        PanNo: loginData.PANNo,
-        Password: SecurePassword,
-        PanImage: downloadURL4,
-        ProfileImage: downloadURL3,
-        ParentRefferal: loginData.ReferenceCode,
+        Aaadharback: downloadURL1 ? downloadURL1 : null,
+        Aaadharfront: downloadURL2 ? downloadURL2 : null,
+        AadharNo: loginData.AadharNo ? loginData.AadharNo : null,
+        BankAccountNumber: loginData.BankAccountNumber
+          ? loginData.BankAccountNumber
+          : null,
+        BankBranchAddress: loginData.BankBranchAddress
+          ? loginData.BankBranchAddress
+          : null,
+        BankIFSCCode: loginData.BankIFSCCode ? loginData.BankIFSCCode : null,
+        BankName: loginData.BankName ? loginData.BankName : null,
+        DOB: loginData.DOB ? loginData.DOB : null,
+        DistributorName: loginData.DistributorName
+          ? loginData.DistributorName
+          : null,
+        District: loginData.District ? loginData.District : null,
+        Email: loginData.Email ? loginData.Email : null,
+        FatherName: loginData.FatherName ? loginData.FatherName : null,
+        HouseNo: loginData.HouseNo ? loginData.HouseNo : null,
+        MobileNumber: loginData.MobileNumber ? loginData.MobileNumber : null,
+        Nationality: loginData.Nationality ? loginData.Nationality : null,
+        NomineeDOB: loginData.NomineeDOB ? loginData.NomineeDOB : null,
+        NomineeName: loginData.NomineeName ? loginData.NomineeName : null,
+        NomineeRelation: loginData.NomineeRelation
+          ? loginData.NomineeRelation
+          : null,
+        PanNo: loginData.PANNo ? loginData.PANNo : null,
+        Password: SecurePassword ? SecurePassword : null,
+        PanImage: downloadURL4 ? downloadURL4 : null,
+        ProfileImage: downloadURL3 ? downloadURL3 : null,
+        ParentRefferal: loginData.ReferenceCode
+          ? loginData.ReferenceCode
+          : null,
         ReferralCode:
-          loginData.DistributorName + loginData.MobileNumber.slice(0, 4),
-        Village: loginData.Village,
-        sex: loginData.sex,
+          loginData.DistributorName && loginData.MobileNumber
+            ? loginData.DistributorName + loginData.MobileNumber.slice(0, 4)
+            : null,
+        Village: loginData.Village ? loginData.Village : null,
+        sex: loginData.sex ? loginData.sex : null,
         isActive: true,
       };
       const response = await setDoc(doc(db, "login", loginData.Email), data);
       history("/login");
     } catch (err) {
-      console.error(err);
+      alert(err.message);
     }
     // }
   };

@@ -11,10 +11,10 @@ const Footer = () => {
 
               <h6 className="text-dark m-4">
                 {" "}
-                V10 Prime Marketing Private Limited{" "}
+                VM11 PRIME MKT PRIVATE LIMITED{" "}
               </h6>
-              <h6 className="text-dark m-4"> CIN- U52609UP2022PTC172085</h6>
-              <h6 className="text-dark m-4"> GSTIN-05AAJCV0293L1Z0</h6>
+              <h6 className="text-dark m-4"> CIN- U47594UT2023PTC015310</h6>
+              {/* <h6 className="text-dark m-4"> GSTIN-05AAJCV0293L1Z0</h6> */}
             </div>
           </div>
         </div>
@@ -35,24 +35,22 @@ const Footer = () => {
           <h5 className="mb-2 text-dark">USEFUL LINKS</h5>
           <ul className="list-unstyled ">
             <li className="mt-3">
-              <a href="/page/license-transfer-policy">
-                License Transfer Policy
-              </a>
+              <a href="/#">License Transfer Policy</a>
             </li>
             <li className="mt-3">
-              <a href="/page/privacy-and-policy">Privacy And Policy</a>
+              <a href="/#">Privacy And Policy</a>
             </li>
             <li className="mt-3">
-              <a href="/page/refund-policy">Refund Policy</a>
+              <a href="/#">Refund Policy</a>
             </li>
             <li className="mt-3">
-              <a href="/page/gallery">Gallery</a>
+              <a href="/#">Gallery</a>
             </li>
             <li className="mt-3">
-              <a href="/page/achievers">V10 Achievers</a>
+              <a href="/#">VM11 Achievers</a>
             </li>
             <li className="mt-3">
-              <a href="/page/bank-payment">Bank Payment</a>
+              <a href="/#">Bank Payment</a>
             </li>
           </ul>
         </div>
