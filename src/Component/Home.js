@@ -206,7 +206,7 @@ const Home = () => {
           </p>
         </div>
 
-        <div className="row mt-5 row-cols-1 row-cols-md-4 mb-3">
+        <div className="row mt-5 row-cols-1 row-cols-md-4 mb-3 justify-content-center">
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
               src="/products/P (1).jpg"

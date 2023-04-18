@@ -61,20 +61,20 @@ const Footer = () => {
           {/* <div className="footer-contant"> */}
           <ul className="list-unstyled text-dark">
             <li>
-              Registered Address- H-141, 1st Floor, Noida Sector 63, Gautam
-              Buddha Nagar Uttar Pradesh 201301 . Corporate Address- Negi Tower,
-              Ground Floor, Basundra Enclave, Near DS Honda, Mohakampur Marji
-              Mafi, Dehradun UK 248005
+              C/O RAM SWAROOP GROUND FLOOR MAKAN NO 146 AJITPURPOST BARA
+              DISTRICT UDHAAN SINGH NAGAR Kichha UR 263148 IN
             </li>
             <li className="mt-2">
               <i className="fa fa-phone"></i>Call Us:{" "}
-              <a href="tel:18008333314">18008333314</a>
+              <a href="tel:+917895101494">+91-7895101494</a>
+              <br />
+              <a className="" href="tel:+918279996848">
+                +91-8279996848
+              </a>
             </li>
             <li className="mt-2">
               <i className="fa fa-envelope"></i>Email Us:{" "}
-              <a href="mailto:v10primemarketing@gmail.com">
-                v10primemarketing@gmail.com
-              </a>
+              <a href="mailto:devbrat7895@gmail.com">devbrat7895@gmail.com</a>
             </li>
           </ul>
           {/* </div> */}
