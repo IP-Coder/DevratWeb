@@ -12,7 +12,7 @@ const Home = () => {
           <div className="carousel-item active">
             <img
               src="/images/1674718141_getty_159281926_117506.jpg"
-              className="d-block "
+              className="d-block w-100"
               alt="/products/P (1).jpg"
               height={"30%"}
             />
@@ -20,7 +20,7 @@ const Home = () => {
           <div className="carousel-item">
             <img
               src="/images/1674718856_Women-Red-Pantsuit-Heels-Outside.jpg"
-              className="d-block "
+              className="d-block w-100"
               alt="/products/P (1).jpg"
               height={"40%"}
             />
@@ -53,7 +53,7 @@ const Home = () => {
       </div>
       {/* CAROUSEL STARTS */}
       {/* Most Popular */}
-      <div className="container " id="most-popular">
+      <div className="container" id="most-popular">
         <div className="text-center mt-5">
           <h6 className="text-danger">Exclusive Products</h6>
           <h1>MOST POPULAR</h1>
@@ -68,7 +68,7 @@ const Home = () => {
           <h5 className="text-danger mt-2">MEN</h5>
         </div>
 
-        <div className="row mt-5 row-cols-1 row-cols-md-4 mb-3">
+        <div className="row mt-5 row-cols-1 row-cols-md-4 mb-3 justify-content-center">
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
               src="/products/P (1).jpg"
