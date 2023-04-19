@@ -132,8 +132,8 @@ const Signup = () => {
         downloadURL4 = await getDownloadURL(storageRef4);
       }
       const data = {
-        Aaadharback: downloadURL1 ? downloadURL1 : null,
-        Aaadharfront: downloadURL2 ? downloadURL2 : null,
+        Aaadharback: downloadURL2 ? downloadURL2 : null,
+        Aaadharfront: downloadURL1 ? downloadURL1 : null,
         AadharNo: loginData.AadharNo ? loginData.AadharNo : null,
         BankAccountNumber: loginData.BankAccountNumber
           ? loginData.BankAccountNumber
