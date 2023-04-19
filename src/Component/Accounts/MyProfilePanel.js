@@ -261,19 +261,19 @@ const MyProfilePanel = () => {
               <label htmlFor="inputPassword4" className="form-label">
                 Aaadharfront
               </label>
-              <img className="w-75" src={data.ProfileImage}></img>
+              <img className="w-75" src={data.Aaadharfront}></img>
             </div>
             <div className="col-md-3">
               <label htmlFor="inputPassword4" className="form-label">
                 Aadharback
               </label>
-              <img className="w-75" src={data.ProfileImage}></img>
+              <img className="w-75" src={data.Aaadharback}></img>
             </div>
             <div className="col-md-3">
               <label htmlFor="inputPassword4" className="form-label">
                 Pan Card
               </label>
-              <img className="w-75" src={data.ProfileImage}></img>
+              <img className="w-75" src={data.PanImage}></img>
             </div>
             <div className="col-md-3">
               <label htmlFor="inputPassword4" className="form-label">
