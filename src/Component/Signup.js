@@ -283,9 +283,8 @@ const Signup = () => {
                 name="Nationality"
                 onChange={onChange}
               >
-                <option value={"Indian"} selected>
-                  Indian
-                </option>
+                <option selected>Select</option>
+                <option value={"Indian"}>Indian</option>
                 <option value={"Non-Indian"}>Non-Indian</option>
               </select>
             </div>
