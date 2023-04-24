@@ -44,8 +44,6 @@ const Login = () => {
     // }
     // else {
     try {
-      console.log("hello");
-      console.log(loginData);
       const docRef = doc(db, "login", loginData.email);
       const docSnap = await getDoc(docRef);
       if (!docSnap.data().isActive) {

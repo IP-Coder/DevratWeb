@@ -19,8 +19,8 @@ const FirebaseImageUploader = () => {
       const storageRef = ref(storage, `images/new2.jpg`);
       await uploadBytes(storageRef, file);
       const downloadUrl1 = await getDownloadURL(storageRef);
-      console.log(downloadUrl1);
-      console.log("File uploaded successfully");
+      // console.log(downloadUrl1);
+      // console.log("File uploaded successfully");
     } catch (error) {
       console.error(error);
     }

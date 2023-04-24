@@ -60,7 +60,8 @@ const MyIdCardPanel = () => {
           </div>
         </div>
         <div className="card-footer fs-5 p- text-danger ">
-          If found please return it to company <br />V 11 PRIME MKT. PVT. LTD.
+          If found please return it to company <br />
+          VM 11 PRIME MKT. PVT. LTD.
         </div>
       </div>
     </>

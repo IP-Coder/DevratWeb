@@ -2,7 +2,17 @@ import React from "react";
 import Navebar from "./Navebar";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { doc, setDoc } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import fb from "./Database/firebaseconfig";
 import Breadcrumb from "./Breadcrumb";
 import { Link } from "react-router-dom";
@@ -10,6 +20,8 @@ import Footer from "./Footer";
 import bcrypt from "bcryptjs";
 import "firebase/storage";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import SignupModal from "./SignupModal";
+
 const db = fb.db;
 const Signup = () => {
   let history = useNavigate();
@@ -20,6 +32,8 @@ const Signup = () => {
   const [file1, setFile1] = useState(null);
   const [file2, setFile2] = useState(null);
   const [file3, setFile3] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
   const [file4, setFile4] = useState(null);
   let downloadURL1;
   let downloadURL2;
@@ -91,7 +105,29 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowModal(true);
+    // alert("Please wait while we are processing your request");
     const salt = await bcrypt.genSalt(10);
+    let recur = loginData.ReferenceCode ? loginData.ReferenceCode : null;
+    let email = null;
+    while (recur !== null) {
+      console.log(recur);
+      const q = query(
+        collection(db, "login"),
+        where("ReferralCode", "==", recur)
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        recur = doc.data().ParentRefferal;
+        email = doc.data().Email;
+      });
+      const washingtonRef = doc(db, "login", email);
+      // Atomically add a new region to the "regions" array field.
+      await updateDoc(washingtonRef, {
+        Refers: arrayUnion(loginData.AadharNo),
+      });
+    }
+
     try {
       const SecurePassword = await bcrypt.hash(loginData.Password, salt);
       const storage = getStorage();
@@ -165,9 +201,11 @@ const Signup = () => {
         ParentRefferal: loginData.ReferenceCode
           ? loginData.ReferenceCode
           : null,
+        Refers: [],
         ReferralCode:
           loginData.DistributorName && loginData.MobileNumber
-            ? loginData.DistributorName + loginData.MobileNumber.slice(0, 4)
+            ? loginData.DistributorName.split(" ")[0].toLowerCase() +
+              loginData.MobileNumber.slice(0, 4)
             : null,
         Village: loginData.Village ? loginData.Village : null,
         sex: loginData.sex ? loginData.sex : null,
@@ -197,6 +235,7 @@ const Signup = () => {
                 Distributor Name*
               </label>
               <input
+                required
                 type="text"
                 className="form-control  p-3"
                 onChange={onChange}
@@ -208,6 +247,7 @@ const Signup = () => {
                 Reference Code*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -219,6 +259,7 @@ const Signup = () => {
                 Email*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -230,6 +271,7 @@ const Signup = () => {
                 Father's Name*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -241,6 +283,7 @@ const Signup = () => {
                 Date Of Birth(DOB)*
               </label>
               <input
+                required
                 type="date"
                 className="form-control p-3"
                 onChange={onChange}
@@ -267,6 +310,7 @@ const Signup = () => {
                 Aadhar No*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -293,6 +337,7 @@ const Signup = () => {
                 House No/Plot*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -304,6 +349,7 @@ const Signup = () => {
                 Village/Post*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -315,6 +361,7 @@ const Signup = () => {
                 District*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -326,6 +373,7 @@ const Signup = () => {
                 Mobile Number*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -337,6 +385,7 @@ const Signup = () => {
                 Nominee Name*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -348,6 +397,7 @@ const Signup = () => {
                 Nominee Relation*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -359,6 +409,7 @@ const Signup = () => {
                 Nominee DOB*
               </label>
               <input
+                required
                 type="date"
                 className="form-control p-3"
                 onChange={onChange}
@@ -370,6 +421,7 @@ const Signup = () => {
                 Bank Name*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -381,6 +433,7 @@ const Signup = () => {
                 Bank Account Number*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -392,6 +445,7 @@ const Signup = () => {
                 Bank Branch Address*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -403,6 +457,7 @@ const Signup = () => {
                 Bank IFSC Code*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -414,6 +469,7 @@ const Signup = () => {
                 PAN No*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -425,6 +481,7 @@ const Signup = () => {
                 PAN Image*
               </label>
               <input
+                required
                 className="form-control p-3"
                 type="file"
                 onChange={handleFile4InputChange}
@@ -436,6 +493,7 @@ const Signup = () => {
                 Aadhar Front Image*
               </label>
               <input
+                required
                 className="form-control p-3"
                 type="file"
                 onChange={handleFile1InputChange}
@@ -447,6 +505,7 @@ const Signup = () => {
                 Aadhar Back Image*
               </label>
               <input
+                required
                 className="form-control p-3"
                 type="file"
                 onChange={handleFile2InputChange}
@@ -458,6 +517,7 @@ const Signup = () => {
                 Profile Image*
               </label>
               <input
+                required
                 className="form-control p-3"
                 type="file"
                 onChange={handleFile3InputChange}
@@ -469,6 +529,7 @@ const Signup = () => {
                 Password*
               </label>
               <input
+                required
                 type="password"
                 className="form-control p-3"
                 onChange={onChange}
@@ -480,6 +541,7 @@ const Signup = () => {
                 Confirm Password*
               </label>
               <input
+                required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -500,6 +562,7 @@ const Signup = () => {
           Already have an account? <Link to="/login"> Log in.</Link>
         </div>
       </div>
+      <SignupModal show={showModal} />
       <Footer />
     </>
   );
