@@ -2,7 +2,6 @@ const bcrypt = require("bcryptjs");
 const resetpass = async (e) => {
   const salt = await bcrypt.genSalt(10);
   const SecurePassword = await bcrypt.hash("Alka@9044", salt);
-  console.log(SecurePassword);
   //   const Ref = doc(db, "login", resetmail);
   //   await updateDoc(Ref, {
   //     password: SecurePassword,

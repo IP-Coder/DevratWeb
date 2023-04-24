@@ -111,7 +111,6 @@ const Signup = () => {
     let recur = loginData.ReferenceCode ? loginData.ReferenceCode : null;
     let email = null;
     while (recur !== null) {
-      console.log(recur);
       const q = query(
         collection(db, "login"),
         where("ReferralCode", "==", recur)

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const LogoutPanel = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    // console.log("logout");
     localStorage.removeItem("email");
     localStorage.removeItem("isLoggedin");
     navigate("/login");

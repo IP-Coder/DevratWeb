@@ -37,9 +37,6 @@ const GenealogyPanel = () => {
     };
     fetchQuerySnapshots();
   }, [data]);
-
-  console.log(querySnapshots);
-
   return (
     <>
       <table className="table bg-white" style={{ fontSize: "15px" }}>
