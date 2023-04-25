@@ -8,6 +8,7 @@ import Contactus from "./Component/Contactus";
 import AHome from "./Component/AHome";
 import Signup from "./Component/Signup";
 import FirebaseImageUploader from "./Component/FirebaseImageUploader";
+import GetLocation from "./Component/GetLocation";
 // import ImageDisplay from "./Component/ImageDisplay";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <Route exact path="/contactus" element={<Contactus />} />
         <Route exact path="/Ahome" element={<AHome />} />
         <Route exact path="/signup" element={<Signup />} />
-        <Route exact path="/tst" element={<FirebaseImageUploader />} />
+        <Route exact path="/tst" element={<GetLocation />} />
       </Routes>
     </Router>
   );

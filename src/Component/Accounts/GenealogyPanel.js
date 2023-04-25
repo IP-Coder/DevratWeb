@@ -50,17 +50,19 @@ const GenealogyPanel = () => {
             <th scope="col">UID</th>
           </tr>
         </thead>
-        <tbody>
-          {querySnapshots.map((snapshot, index) => (
-            <tr key={index}>
-              <td>{snapshot[0].DistributorName}</td>
-              <td>{snapshot[0].MobileNumber}</td>
-              <td>{snapshot[0].DOB}</td>
-              <td>Undefined</td>
-              <td>{snapshot[0].AadharNo}</td>
-            </tr>
-          ))}
-        </tbody>
+        {querySnapshots.length !== 0 && (
+          <tbody>
+            {querySnapshots.map((snapshot, index) => (
+              <tr key={index}>
+                <td>{snapshot[0].DistributorName}</td>
+                <td>{snapshot[0].MobileNumber}</td>
+                <td>{snapshot[0].DOB}</td>
+                <td>Undefined</td>
+                <td>{snapshot[0].AadharNo}</td>
+              </tr>
+            ))}
+          </tbody>
+        )}
       </table>
     </>
   );

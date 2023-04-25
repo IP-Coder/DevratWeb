@@ -55,7 +55,7 @@ const Contactus = () => {
 
             <div className="col-12">
               <button type="submit" className="btn btn-primary">
-                Sign in
+                Send Message
               </button>
             </div>
           </form>
