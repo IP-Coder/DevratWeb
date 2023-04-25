@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const GetLocation = () => {
   const [location, setLocation] = useState({});
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getLocation();
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -31,6 +39,7 @@ const GetLocation = () => {
       }
     });
   }
+
   return (
     <div>
       <button onClick={requestLocationPermission}>Get Location</button>
