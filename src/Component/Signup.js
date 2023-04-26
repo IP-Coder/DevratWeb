@@ -108,8 +108,12 @@ const Signup = () => {
     setShowModal(true);
     // alert("Please wait while we are processing your request");
     const salt = await bcrypt.genSalt(10);
-    let recur = loginData.ReferenceCode ? loginData.ReferenceCode : null;
+
+    let recur = loginData.ReferenceCode
+      ? loginData.ReferenceCode.replace(/\s/g, "")
+      : null;
     let email = null;
+
     while (recur !== null) {
       const q = query(
         collection(db, "login"),
