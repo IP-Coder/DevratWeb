@@ -8,6 +8,7 @@ import Breadcrumb from "./Breadcrumb";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import bcrypt from "bcryptjs";
+import Captcha from "./Captcha";
 const db = fb.db;
 const Login = () => {
   const [Emailerror, setEmailerror] = React.useState(null);
@@ -254,6 +255,7 @@ const Login = () => {
             </button>
           </form>
         </div>
+        <Captcha />
         {/* Form */}
         <div className="text-center">
           Don't have an account? <Link to="/signup"> Sign Up.</Link>
