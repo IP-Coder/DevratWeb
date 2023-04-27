@@ -8,7 +8,6 @@ import Breadcrumb from "./Breadcrumb";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import bcrypt from "bcryptjs";
-import Captcha from "./Captcha";
 const db = fb.db;
 const Login = () => {
   const [Emailerror, setEmailerror] = React.useState(null);
@@ -235,18 +234,26 @@ const Login = () => {
                 {Passworderror}
               </div> */}
             </div>
-            <Captcha />
-            <div
-              class="g-recaptcha"
-              data-sitekey="6LetUsIlAAAAAOSxTNhQA7tHjPoMtWUOtu8JnQku"
-              data-action="LOGIN"
-            ></div>
+            <div className="mb-3 form-check">
+              <input
+                required
+                type="checkbox"
+                className="form-check-input"
+                id="exampleCheck1"
+                onInvalid={(e) => {
+                  e.target.setCustomValidity("Please check this box to verify");
+                }}
+              />
+
+              <label className="form-check-label" htmlFor="exampleCheck1">
+                I am not a robot
+              </label>
+            </div>
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </form>
         </div>
-
         {/* Form */}
         <div className="text-center">
           Don't have an account? <Link to="/signup"> Sign Up.</Link>
