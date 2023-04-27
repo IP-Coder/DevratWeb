@@ -235,27 +235,17 @@ const Login = () => {
                 {Passworderror}
               </div> */}
             </div>
-            <div className="mb-3 form-check">
-              <input
-                required
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-                onInvalid={(e) => {
-                  e.target.setCustomValidity("Please check this box to verify");
-                }}
-              />
-
-              <label className="form-check-label" htmlFor="exampleCheck1">
-                I am not a robot
-              </label>
-            </div>
+            <div
+              class="g-recaptcha"
+              data-sitekey="6LetUsIlAAAAAOSxTNhQA7tHjPoMtWUOtu8JnQku"
+              data-action="LOGIN"
+            ></div>
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </form>
         </div>
-        <Captcha />
+
         {/* Form */}
         <div className="text-center">
           Don't have an account? <Link to="/signup"> Sign Up.</Link>
