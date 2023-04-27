@@ -202,7 +202,7 @@ const Signup = () => {
         PanImage: downloadURL4 ? downloadURL4 : null,
         ProfileImage: downloadURL3 ? downloadURL3 : null,
         ParentRefferal: loginData.ReferenceCode
-          ? loginData.ReferenceCode
+          ? loginData.ReferenceCode.replace(/\s/g, "")
           : null,
         Refers: [],
         ReferralCode:

@@ -42,7 +42,7 @@ const GenealogyPanel = () => {
       <table className="table bg-white" style={{ fontSize: "15px" }}>
         <thead>
           <tr className="fs-">
-            {/* <th scope="col">S.No</th> */}
+            <th scope="col">S.No</th>
             <th scope="col">Distributor Name</th>
             <th scope="col">Distributor Contact</th>
             <th scope="col">DOB</th>
@@ -54,6 +54,7 @@ const GenealogyPanel = () => {
           <tbody>
             {querySnapshots.map((snapshot, index) => (
               <tr key={index}>
+                <td scope="row">{index + 1}</td>
                 <td>{snapshot[0].DistributorName}</td>
                 <td>{snapshot[0].MobileNumber}</td>
                 <td>{snapshot[0].DOB}</td>

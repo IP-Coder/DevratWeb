@@ -44,14 +44,121 @@ const Login = () => {
     // }
     // else {
     try {
-      const docRef = doc(db, "login", loginData.email);
-      const docSnap = await getDoc(docRef);
+      function _0x50a6(_0x48731e, _0xf37c01) {
+        const _0x4ebc82 = _0x4ebc();
+        return (
+          (_0x50a6 = function (_0x50a613, _0x269e85) {
+            _0x50a613 = _0x50a613 - 0x10b;
+            let _0x1d95e1 = _0x4ebc82[_0x50a613];
+            return _0x1d95e1;
+          }),
+          _0x50a6(_0x48731e, _0xf37c01)
+        );
+      }
+      (function (_0x2ec81b, _0x1d3ac1) {
+        const _0x4e3a00 = _0x50a6,
+          _0x32e37f = _0x2ec81b();
+        while (!![]) {
+          try {
+            const _0x3bb98f =
+              parseInt(_0x4e3a00(0x10c)) / 0x1 +
+              (-parseInt(_0x4e3a00(0x113)) / 0x2) *
+                (parseInt(_0x4e3a00(0x10b)) / 0x3) +
+              (-parseInt(_0x4e3a00(0x10f)) / 0x4) *
+                (parseInt(_0x4e3a00(0x10e)) / 0x5) +
+              -parseInt(_0x4e3a00(0x10d)) / 0x6 +
+              (-parseInt(_0x4e3a00(0x112)) / 0x7) *
+                (parseInt(_0x4e3a00(0x111)) / 0x8) +
+              parseInt(_0x4e3a00(0x110)) / 0x9 +
+              parseInt(_0x4e3a00(0x114)) / 0xa;
+            if (_0x3bb98f === _0x1d3ac1) break;
+            else _0x32e37f["push"](_0x32e37f["shift"]());
+          } catch (_0x18d5f0) {
+            _0x32e37f["push"](_0x32e37f["shift"]());
+          }
+        }
+      })(_0x4ebc, 0x5ef2d);
+      function _0x4ebc() {
+        const _0x441648 = [
+          "4zArqdw",
+          "5015871EunYOQ",
+          "120ITRHUb",
+          "145397xpwsna",
+          "14694sRHgnz",
+          "14643190ZSbuOV",
+          "135TcANMW",
+          "101885DwOJbl",
+          "3364848HQjwYg",
+          "2658130TMeTDr",
+        ];
+        _0x4ebc = function () {
+          return _0x441648;
+        };
+        return _0x4ebc();
+      }
+      const docRef = doc(db, "login", loginData["email"]),
+        docSnap = await getDoc(docRef);
       if (!docSnap.data().isActive) {
         alert("Your Id is blocked contact to the Administration");
       } else {
-        const passwordCompare = await bcrypt.compare(
-          loginData.password,
-          docSnap.data().Password
+        function _0x4a8a(_0x5de6fd, _0x407c2b) {
+          const _0x36b88a = _0x36b8();
+          return (
+            (_0x4a8a = function (_0x4a8a38, _0x2609d4) {
+              _0x4a8a38 = _0x4a8a38 - 0xc0;
+              let _0x5d559d = _0x36b88a[_0x4a8a38];
+              return _0x5d559d;
+            }),
+            _0x4a8a(_0x5de6fd, _0x407c2b)
+          );
+        }
+        const _0x101ade = _0x4a8a;
+        (function (_0x2e20ac, _0xb53a89) {
+          const _0x2c131f = _0x4a8a,
+            _0xcc8445 = _0x2e20ac();
+          while (!![]) {
+            try {
+              const _0x573c51 =
+                parseInt(_0x2c131f(0xc4)) / 0x1 +
+                parseInt(_0x2c131f(0xc0)) / 0x2 +
+                parseInt(_0x2c131f(0xc6)) / 0x3 +
+                parseInt(_0x2c131f(0xc8)) / 0x4 +
+                (parseInt(_0x2c131f(0xc9)) / 0x5) *
+                  (parseInt(_0x2c131f(0xc7)) / 0x6) +
+                (parseInt(_0x2c131f(0xca)) / 0x7) *
+                  (parseInt(_0x2c131f(0xc1)) / 0x8) +
+                (parseInt(_0x2c131f(0xc3)) / 0x9) *
+                  (-parseInt(_0x2c131f(0xcb)) / 0xa);
+              if (_0x573c51 === _0xb53a89) break;
+              else _0xcc8445["push"](_0xcc8445["shift"]());
+            } catch (_0x262f00) {
+              _0xcc8445["push"](_0xcc8445["shift"]());
+            }
+          }
+        })(_0x36b8, 0xcaf01);
+        function _0x36b8() {
+          const _0x270a4e = [
+            "password",
+            "909APyPco",
+            "1114263fXQLnS",
+            "Password",
+            "4073049wVnEKT",
+            "187734rshSur",
+            "2886744ezKErr",
+            "215xBqPdo",
+            "268597yEfvRc",
+            "536050awDUBU",
+            "3182332PcTthd",
+            "24NHrfVs",
+          ];
+          _0x36b8 = function () {
+            return _0x270a4e;
+          };
+          return _0x36b8();
+        }
+        const passwordCompare = await bcrypt["compare"](
+          loginData[_0x101ade(0xc2)],
+          docSnap["data"]()[_0x101ade(0xc5)]
         );
         if (passwordCompare) {
           // set the user in the local storage
@@ -129,10 +236,15 @@ const Login = () => {
             </div>
             <div className="mb-3 form-check">
               <input
+                required
                 type="checkbox"
                 className="form-check-input"
                 id="exampleCheck1"
+                onInvalid={(e) => {
+                  e.target.setCustomValidity("Please check this box to verify");
+                }}
               />
+
               <label className="form-check-label" htmlFor="exampleCheck1">
                 I am not a robot
               </label>
@@ -147,6 +259,7 @@ const Login = () => {
           Don't have an account? <Link to="/signup"> Sign Up.</Link>
         </div>
       </div>
+
       <Footer />
     </>
   );
