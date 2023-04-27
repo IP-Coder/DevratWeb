@@ -235,6 +235,7 @@ const Login = () => {
                 {Passworderror}
               </div> */}
             </div>
+            <Captcha />
             <div
               class="g-recaptcha"
               data-sitekey="6LetUsIlAAAAAOSxTNhQA7tHjPoMtWUOtu8JnQku"
