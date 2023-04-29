@@ -113,7 +113,6 @@ const Signup = () => {
       ? loginData.ReferenceCode.replace(/\s/g, "")
       : null;
     let email = null;
-
     while (recur !== null) {
       const q = query(
         collection(db, "login"),
@@ -214,6 +213,25 @@ const Signup = () => {
         sex: loginData.sex ? loginData.sex : null,
         isActive: true,
       };
+      const q = query(
+        collection(db, "login"),
+        where(
+          "ReferralCode",
+          "==",
+          loginData.ReferenceCode
+            ? loginData.ReferenceCode.replace(/\s/g, "")
+            : null
+        )
+      );
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        email = doc.data().Email;
+      });
+      const washingtonRef = doc(db, "login", email);
+      // Atomically add a new region to the "regions" array field.
+      await updateDoc(washingtonRef, {
+        MyRefers: arrayUnion(loginData.AadharNo),
+      });
       const response = await setDoc(doc(db, "login", loginData.Email), data);
       history("/login");
     } catch (err) {
