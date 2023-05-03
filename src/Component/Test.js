@@ -1,11 +1,12 @@
-const bcrypt = require("bcryptjs");
-const resetpass = async (e) => {
-  const salt = await bcrypt.genSalt(10);
-  const SecurePassword = await bcrypt.hash("Alka@9044", salt);
-  //   const Ref = doc(db, "login", resetmail);
-  //   await updateDoc(Ref, {
-  //     password: SecurePassword,
-  //   });
+import LiveLocationMap from "./LiveLocationMap";
+
+const Test = () => {
+  return (
+    <div>
+      <h1>Live Location Tracking</h1>
+      <LiveLocationMap />
+    </div>
+  );
 };
-resetpass();
-$2a$10$3X2J7cPQpxjq4kRjUP6WFetfTxvEgmEDcl3dPKXjPh3Wk2aiHf8hS;
+
+export default Test;
