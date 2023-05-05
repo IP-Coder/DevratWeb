@@ -129,7 +129,25 @@ const Signup = () => {
         Refers: arrayUnion(loginData.AadharNo),
       });
     }
-
+    const q = query(
+      collection(db, "login"),
+      where(
+        "ReferralCode",
+        "==",
+        loginData.ReferenceCode
+          ? loginData.ReferenceCode.replace(/\s/g, "")
+          : null
+      )
+    );
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      email = doc.data().Email;
+    });
+    const washingtonRef = doc(db, "login", email);
+    // Atomically add a new region to the "regions" array field.
+    await updateDoc(washingtonRef, {
+      MyRefers: arrayUnion(loginData.AadharNo),
+    });
     try {
       const SecurePassword = await bcrypt.hash(loginData.Password, salt);
       const storage = getStorage();
@@ -213,25 +231,6 @@ const Signup = () => {
         sex: loginData.sex ? loginData.sex : null,
         isActive: true,
       };
-      const q = query(
-        collection(db, "login"),
-        where(
-          "ReferralCode",
-          "==",
-          loginData.ReferenceCode
-            ? loginData.ReferenceCode.replace(/\s/g, "")
-            : null
-        )
-      );
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        email = doc.data().Email;
-      });
-      const washingtonRef = doc(db, "login", email);
-      // Atomically add a new region to the "regions" array field.
-      await updateDoc(washingtonRef, {
-        MyRefers: arrayUnion(loginData.AadharNo),
-      });
       const response = await setDoc(doc(db, "login", loginData.Email), data);
       history("/login");
     } catch (err) {
@@ -256,7 +255,7 @@ const Signup = () => {
                 Distributor Name*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control  p-3"
                 onChange={onChange}
@@ -268,7 +267,7 @@ const Signup = () => {
                 Reference Code*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -280,7 +279,7 @@ const Signup = () => {
                 Email*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -292,7 +291,7 @@ const Signup = () => {
                 Father's Name*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -304,7 +303,7 @@ const Signup = () => {
                 Date Of Birth(DOB)*
               </label>
               <input
-                required
+                // required
                 type="date"
                 className="form-control p-3"
                 onChange={onChange}
@@ -331,7 +330,7 @@ const Signup = () => {
                 Aadhar No*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -358,7 +357,7 @@ const Signup = () => {
                 House No/Plot*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -370,7 +369,7 @@ const Signup = () => {
                 Village/Post*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -382,7 +381,7 @@ const Signup = () => {
                 District*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -394,7 +393,7 @@ const Signup = () => {
                 Mobile Number*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -406,7 +405,7 @@ const Signup = () => {
                 Nominee Name*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -418,7 +417,7 @@ const Signup = () => {
                 Nominee Relation*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -430,7 +429,7 @@ const Signup = () => {
                 Nominee DOB*
               </label>
               <input
-                required
+                // required
                 type="date"
                 className="form-control p-3"
                 onChange={onChange}
@@ -442,7 +441,7 @@ const Signup = () => {
                 Bank Name*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -454,7 +453,7 @@ const Signup = () => {
                 Bank Account Number*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -466,7 +465,7 @@ const Signup = () => {
                 Bank Branch Address*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -478,7 +477,7 @@ const Signup = () => {
                 Bank IFSC Code*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -490,7 +489,7 @@ const Signup = () => {
                 PAN No*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}
@@ -502,7 +501,7 @@ const Signup = () => {
                 PAN Image*
               </label>
               <input
-                required
+                // required
                 className="form-control p-3"
                 type="file"
                 onChange={handleFile4InputChange}
@@ -514,7 +513,7 @@ const Signup = () => {
                 Aadhar Front Image*
               </label>
               <input
-                required
+                // required
                 className="form-control p-3"
                 type="file"
                 onChange={handleFile1InputChange}
@@ -526,7 +525,7 @@ const Signup = () => {
                 Aadhar Back Image*
               </label>
               <input
-                required
+                // required
                 className="form-control p-3"
                 type="file"
                 onChange={handleFile2InputChange}
@@ -538,7 +537,7 @@ const Signup = () => {
                 Profile Image*
               </label>
               <input
-                required
+                // required
                 className="form-control p-3"
                 type="file"
                 onChange={handleFile3InputChange}
@@ -550,7 +549,7 @@ const Signup = () => {
                 Password*
               </label>
               <input
-                required
+                // required
                 type="password"
                 className="form-control p-3"
                 onChange={onChange}
@@ -562,7 +561,7 @@ const Signup = () => {
                 Confirm Password*
               </label>
               <input
-                required
+                // required
                 type="text"
                 className="form-control p-3"
                 onChange={onChange}

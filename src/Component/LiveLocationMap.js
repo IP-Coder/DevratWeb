@@ -1,50 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import React from "react";
+import GoogleMapReact from "google-map-react";
 
-const LiveLocationMap = () => {
-  const [location, setLocation] = useState(null);
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-  useEffect(() => {
-    // Replace this with your own location tracking logic
-    const getLocation = () => {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        setLocation({ lat: latitude, lng: longitude });
-      });
-    };
-
-    getLocation();
-    const intervalId = setInterval(getLocation, 10000); // Update location every 10 seconds
-
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const markerIcon = new L.Icon({
-    iconUrl: "marker-icon.png",
-    iconRetinaUrl: "marker-icon-2x.png",
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [0, -41],
-    shadowUrl: "marker-shadow.png",
-    shadowSize: [41, 41],
-    shadowAnchor: [12, 41],
-  });
+export default function SimpleMap() {
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627,
+    },
+    zoom: 11,
+  };
 
   return (
-    <MapContainer center={[37.7749, -122.4194]} zoom={13}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-      />
-      {location && (
-        <Marker position={[location.lat, location.lng]} icon={markerIcon}>
-          <Popup>Your current location</Popup>
-        </Marker>
-      )}
-    </MapContainer>
+    // Important! Always set the container height explicitly
+    <div style={{ height: "100vh", width: "100%" }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyDnHwXGyzA4MNAAEdEW26HYc03iexfyuj0" }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+      >
+        <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
+      </GoogleMapReact>
+    </div>
   );
-};
-
-export default LiveLocationMap;
+}
