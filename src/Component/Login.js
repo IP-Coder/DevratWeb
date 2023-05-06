@@ -236,7 +236,6 @@ const Login = () => {
             </div>
             <div className="mb-3 form-check">
               <input
-                
                 type="checkbox"
                 className="form-check-input"
                 id="exampleCheck1"
