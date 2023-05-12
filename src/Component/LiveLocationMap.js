@@ -1,41 +1,76 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 const LiveLocationMap = () => {
-  const [accuracy, setAccuracy] = useState(null);
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
-  const [altitude, setAltitude] = useState(null);
-  const [heading, setHeading] = useState(null);
-  const [speed, setSpeed] = useState(null);
-  const [reqcount, setReqcount] = useState(0);
+  const mapDivRef = useRef(null);
+  const detailsDivRef = useRef(null);
+  let map;
+  let marker;
 
   useEffect(() => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+
     navigator.geolocation.watchPosition(
-      (position) => {
-        setAccuracy(position.coords.accuracy);
-        setLatitude(position.coords.latitude);
-        setLongitude(position.coords.longitude);
-        setAltitude(position.coords.altitude);
-        setHeading(position.coords.heading);
-        setSpeed(position.coords.speed);
-        setReqcount(reqcount + 1);
-      },
-      (error) => {
-        console.log(error);
-      }
+      successCallback,
+      errorCallback,
+      options
     );
+
+    function successCallback(position) {
+      const { accuracy, latitude, longitude, altitude, heading, speed } =
+        position.coords;
+
+      if (!map) {
+        map = new window.google.maps.Map(mapDivRef.current, {
+          center: { lat: latitude, lng: longitude },
+          zoom: 15,
+        });
+      } else {
+        map.setCenter({ lat: latitude, lng: longitude });
+      }
+
+      if (!marker) {
+        marker = new window.google.maps.Marker({
+          position: { lat: latitude, lng: longitude },
+          map: map,
+          icon: {
+            url: "car-front.svg",
+            scaledSize: new window.google.maps.Size(50, 50),
+            origin: new window.google.maps.Point(0, 0),
+            anchor: new window.google.maps.Point(25, 25),
+            rotation: heading,
+          },
+        });
+      } else {
+        marker.setPosition({ lat: latitude, lng: longitude });
+        marker.setIcon({
+          url: "car-front.svg",
+          scaledSize: new window.google.maps.Size(50, 50),
+          origin: new window.google.maps.Point(0, 0),
+          anchor: new window.google.maps.Point(25, 25),
+          rotation: heading,
+        });
+      }
+
+      detailsDivRef.current.textContent = `Accuracy: ${accuracy}
+          Latitude: ${latitude} | Longitude: ${longitude}
+          Altitude: ${altitude}
+          Heading: ${heading}
+          Speed: ${speed}`;
+    }
+
+    function errorCallback(error) {
+      console.log("Error: ", error);
+    }
   }, []);
 
   return (
     <div>
-      <div>Accuracy: {accuracy}</div>
-      <div>
-        Latitude: {latitude} | Longitude: {longitude}
-      </div>
-      <div>Altitude: {altitude}</div>
-      <div>Heading: {heading}</div>
-      <div>Speed: {speed}</div>
-      <div>reqcount: {reqcount}</div>
+      <div ref={mapDivRef} style={{ height: "100vh" }}></div>
+      <div ref={detailsDivRef}></div>
     </div>
   );
 };
