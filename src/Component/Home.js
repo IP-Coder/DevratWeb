@@ -87,7 +87,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (2).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -103,7 +103,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (3).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -119,7 +119,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (4).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -135,7 +135,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (5).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -151,7 +151,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (6).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -167,7 +167,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (7).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -209,7 +209,7 @@ const Home = () => {
         <div className="row mt-5 row-cols-1 row-cols-md-4 mb-3 justify-content-center">
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (8).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -225,7 +225,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (9).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -241,7 +241,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (10).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -257,7 +257,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (11).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -273,7 +273,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (12).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -289,7 +289,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (13).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
@@ -305,7 +305,7 @@ const Home = () => {
           </div>
           <div className="card m-3" style={{ width: "15rem" }}>
             <img
-              src="/products/P (1).jpg"
+              src="/products/P (14).jpg"
               className="card-img-top"
               alt="/products/P (1).jpg"
             />
