@@ -9,6 +9,7 @@ import AHome from "./Component/AHome";
 import Signup from "./Component/Signup";
 import FirebaseImageUploader from "./Component/FirebaseImageUploader";
 import LiveLocationMap from "./Component/LiveLocationMap";
+import Error from "./Component/Error";
 
 // import ImageDisplay from "./Component/ImageDisplay";
 
@@ -17,13 +18,14 @@ function App() {
     <Router>
       {/* <DescriptionAlerts alert={alert} /> */}
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Error />} />
+        {/* <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/404" element={<Four04 />} />
         <Route exact path="/contactus" element={<Contactus />} />
         <Route exact path="/Ahome" element={<AHome />} />
         <Route exact path="/signup" element={<Signup />} />
-        <Route exact path="/location" element={<LiveLocationMap />} />
+        <Route exact path="/location" element={<LiveLocationMap />} /> */}
       </Routes>
     </Router>
   );
